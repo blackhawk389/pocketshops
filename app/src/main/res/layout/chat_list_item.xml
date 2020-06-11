@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:id="@+id/item">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/user_image"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:src="@drawable/default_profile"
+            fresco:placeholderImage="@color/colorVeryLightGray"
+            fresco:actualImageScaleType="focusCrop"
+            fresco:roundAsCircle="true"
+            fresco:roundingBorderWidth="@dimen/_1sdp"
+            fresco:roundingBorderColor="@android:color/white"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"/>
+
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:id="@+id/red_dot"
+            android:src="@drawable/default_profile"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_toRightOf="@+id/user_image"
+            android:visibility="gone"
+            android:background="@drawable/round_view"
+            android:layout_marginBottom="@dimen/_8sdp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_toRightOf="@+id/user_image"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_10sdp">
+
+            <TextView
+                android:id="@+id/seller_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rado Watch"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp" />
+            <TextView
+                android:id="@+id/product_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10 Products"
+                android:visibility="gone"
+                android:textColor="@color/imagepicker_grey"
+                android:textSize="@dimen/_13ssp"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/msg_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4:00 PM"
+            android:textColor="@color/imagepicker_grey"
+            android:textSize="@dimen/_13ssp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

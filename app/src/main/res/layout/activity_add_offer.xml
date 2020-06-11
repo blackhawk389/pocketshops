@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <variable
+            name="view"
+            type="com.appabilities.sold.screens.add_offer.AddOfferContract.View" />
+
+        <variable
+            name="presenter"
+            type="com.appabilities.sold.screens.add_offer.AddOfferPresenter" />
+    </data>
+
+    <com.kennyc.view.MultiStateView
+        android:id="@+id/multiStateView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:msv_emptyView="@layout/empty_view"
+        app:msv_errorView="@layout/error_view"
+        app:msv_loadingView="@layout/loading_view"
+        app:msv_viewState="content">
+
+        <ScrollView
+            android:id="@+id/scroll_newproduct"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="com.appabilities.sold.screens.add_offer.view.AddOfferActivity"
+            tools:ignore="MissingPrefix">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/edt_offer_title"
+                    fontPath="fonts/SF-UI-Display-Light.otf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/edittext_rounded_selector"
+                    android:hint="Offer Title"
+                    android:padding="@dimen/_8sdp"
+                    android:textColor="@color/editTextColorDark"
+                    android:textColorHint="@color/editTextColor"
+                    android:textStyle="normal" />
+
+                <EditText
+                    android:id="@+id/edt_offer_desc"
+                    fontPath="fonts/SF-UI-Display-Light.otf"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/edittext_rounded_selector"
+                    android:gravity="top|left"
+                    android:hint="Offer Details"
+                    android:padding="@dimen/_8sdp"
+                    android:textColor="@color/editTextColorDark"
+                    android:textColorHint="@color/editTextColor"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="normal" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+                    <EditText
+                        android:id="@+id/edt_price"
+                        fontPath="fonts/SF-UI-Display-Light.otf"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_weight="50"
+                        android:background="@drawable/edittext_rounded_selector"
+                        android:hint="Price (SAR)"
+                        android:inputType="numberDecimal"
+                        android:padding="@dimen/_8sdp"
+                        android:textColor="@color/editTextColorDark"
+                        android:textColorHint="@color/editTextColor"
+                        android:textStyle="normal" />
+
+                    <EditText
+                        android:id="@+id/edt_quantity"
+                        fontPath="fonts/SF-UI-Display-Light.otf"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_weight="50"
+                        android:background="@drawable/edittext_rounded_selector"
+                        android:hint="Quantity"
+                        android:inputType="number"
+                        android:padding="@dimen/_8sdp"
+                        android:textColor="@color/editTextColorDark"
+                        android:textColorHint="@color/editTextColor"
+                        android:textStyle="normal" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_80sdp"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="45"
+                        android:gravity="center"
+                        android:padding="@dimen/_10sdp"
+                        android:visibility="gone">
+
+                        <com.github.clans.fab.FloatingActionButton
+                            android:id="@+id/fabCamera_newproduct"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:srcCompat="@drawable/ic_camera_only"
+                            app:fabSize="normal"
+                            app:fab_colorNormal="@color/colorPrimary"
+                            app:fab_colorPressed="@color/colorPrimaryDark" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="10"
+                        android:gravity="center"
+                        android:visibility="gone">
+
+                        <View
+                            android:layout_width="@dimen/_1sdp"
+                            android:layout_height="match_parent"
+                            android:background="#dfdfdf" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="45"
+                        android:gravity="center"
+                        android:padding="@dimen/_10sdp">
+
+                        <com.github.clans.fab.FloatingActionButton
+                            android:id="@+id/btn_images"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:onClick="@{()->view.onClickGalleryForImages()}"
+                            android:src="@drawable/ic_gallery"
+                            app:fabSize="normal"
+                            app:fab_colorNormal="@color/colorPrimary"
+                            app:fab_colorPressed="@color/colorPrimaryDark" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_3sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:gravity="center"
+                    android:text="CAPTURE OR PICK UPTO 5 PICTURES"
+                    android:textSize="@dimen/_13sdp" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_images"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:scrollbars="horizontal"></androidx.recyclerview.widget.RecyclerView>
+
+                <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/fab_save_offer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="bottom|right"
+                    android:layout_marginBottom="@dimen/_12sdp"
+                    android:layout_marginRight="@dimen/_12sdp"
+                    android:onClick="@{()->view.onClickAddOffer()}"
+                    android:src="@drawable/ic_save"
+                    app:fab_colorNormal="@color/colorPrimary"
+                    app:fab_colorPressed="@color/colorPrimaryDark"
+                    app:fab_label="Add New Offer"
+                    app:fab_size="normal" />
+
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+    </com.kennyc.view.MultiStateView>
+
+</layout>

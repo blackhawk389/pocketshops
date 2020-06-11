@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="view"
+            type="com.appabilities.sold.screens.registration.RegistrationContract.View" />
+
+        <variable
+            name="presenter"
+            type="com.appabilities.sold.screens.registration.RegistrationPresenter" />
+    </data>
+
+    <ScrollView android:id="@+id/activity_register"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:layout_gravity="fill_vertical"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".screens.registration.view.RegistrationActivity">
+        >
+
+        <!-- bunch of components here -->
+        <LinearLayout
+            android:id="@+id/layoutRegisterScrollerContnet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="100">
+
+            <EditText
+                android:id="@+id/txtUsernameRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_rounded_selector"
+                android:hint="Username"
+                android:textColorHint="@color/editTextColor"
+                fontPath="fonts/SF-UI-Display-Light.otf"
+                android:textColor="@color/editTextColorDark"
+                android:textStyle="normal"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginLeft="@dimen/_30sdp"
+                android:layout_marginRight="@dimen/_30sdp"
+                android:padding="@dimen/_8sdp"
+                android:drawableLeft="@drawable/ic_username"
+                android:drawablePadding="@dimen/_5sdp"
+                />
+
+            <EditText
+                android:id="@+id/txtEmailRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_rounded_selector"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:textColorHint="@color/editTextColor"
+                fontPath="fonts/SF-UI-Display-Light.otf"
+                android:textColor="@color/editTextColorDark"
+                android:textStyle="normal"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_30sdp"
+                android:layout_marginRight="@dimen/_30sdp"
+                android:padding="@dimen/_8sdp"
+                android:drawableLeft="@drawable/ic_email"
+                android:drawablePadding="@dimen/_5sdp"
+                />
+
+            <EditText
+                android:id="@+id/txtPasswordRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_rounded_selector"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textColorHint="@color/editTextColor"
+                fontPath="fonts/SF-UI-Display-Light.otf"
+                android:textColor="@color/editTextColorDark"
+                android:textStyle="normal"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_30sdp"
+                android:layout_marginRight="@dimen/_30sdp"
+                android:padding="@dimen/_8sdp"
+                android:drawableLeft="@drawable/ic_password"
+                android:drawablePadding="@dimen/_5sdp"
+                />
+
+            <EditText
+                android:id="@+id/txtConfirmPasswordRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_rounded_selector"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                android:textColorHint="@color/editTextColor"
+                fontPath="fonts/SF-UI-Display-Light.otf"
+                android:textColor="@color/editTextColorDark"
+                android:textStyle="normal"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_30sdp"
+                android:layout_marginRight="@dimen/_30sdp"
+                android:padding="@dimen/_8sdp"
+                android:drawableLeft="@drawable/ic_password"
+                android:drawablePadding="@dimen/_5sdp"
+                />
+
+
+            <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
+                android:id="@+id/btnNextRegister"
+                style="@style/MyButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginLeft="@dimen/_50sdp"
+                android:layout_marginRight="@dimen/_50sdp"
+                android:text="NEXT"
+                android:onClick="@{()->view.onNextClick()}"
+                fontPath="fonts/SF-UI-Display-Bold.otf"
+                app:spinning_bar_color="@android:color/white"
+                android:textStyle="bold"
+                android:gravity="center"
+                app:spinning_bar_padding="3dp" />
+
+            <LinearLayout
+                android:layout_below="@+id/layoutRegisterScrollerContnet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal|bottom"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_20sdp">
+
+                <TextView
+                    android:id="@+id/txtLoginText_register"
+                    android:clickable="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Already have an account?"
+                    android:textColor="@color/buttonShadowColor"
+                    android:textSize="@dimen/_13sdp"
+                    android:gravity="center"
+                    android:textStyle="italic"/>
+
+                <TextView
+                    android:id="@+id/txtLoginRegister"
+                    android:clickable="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Login Here"
+                    android:textStyle="bold"
+                    android:textColor="@color/buttonShadowColor"
+                    android:textSize="@dimen/_13sdp"
+                    android:onClick="@{()->view.onClickLoginHere()}"
+                    android:gravity="center"
+                    android:layout_marginLeft="@dimen/_4sdp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- bottom sticky views here -->
+
+
+
+
+    </ScrollView>
+</layout>

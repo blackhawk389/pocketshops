@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="orderModel"
+            type="com.appabilities.sold.model.OrderDetailModel"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/_5sdp"
+        android:paddingTop="@dimen/_5sdp">
+
+        <TextView
+            android:id="@+id/txtName_fooditem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:ellipsize="end"
+            android:lines="1"
+            android:paddingEnd="@dimen/_2sdp"
+            android:paddingRight="@dimen/_2sdp"
+            tools:text="@string/food_item_str"
+            android:textColor="@color/text_darker_gray_color"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtItemPrice_cartitem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:gravity="end"
+            tools:text="SR 10.00"
+            android:text="@{@string/amount_sar_str(orderModel.itemPrice)}"
+            android:textColor="@color/text_darker_gray_color"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@+id/txtName_fooditem"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/light_bg_gray_color"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+</layout>

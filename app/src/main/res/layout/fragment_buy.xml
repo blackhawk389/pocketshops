@@ -1,0 +1,166 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="view"
+            type="com.appabilities.sold.screens.home.fragment.buy.BuyContract.View" />
+
+        <variable
+            name="presenter"
+            type="com.appabilities.sold.screens.home.fragment.buy.BuyPresenter" />
+    </data>
+
+
+    <com.kennyc.view.MultiStateView
+        android:id="@+id/multiSateView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:msv_emptyView="@layout/empty_view"
+        app:msv_errorView="@layout/error_view"
+        app:msv_loadingView="@layout/loading_view"
+        app:msv_viewState="content"
+        android:background="#EEEEEE"
+        tools:context="com.appabilities.sold.screens.home.fragment.buy.view.BuyFragment">
+
+        <ScrollView
+            android:id="@+id/scrollview"
+            android:nestedScrollingEnabled="false"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <com.jude.rollviewpager.RollPagerView
+                    android:id="@+id/sliderFeature"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_160sdp"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    app:rollviewpager_play_delay="4000" />
+
+                <RelativeLayout
+                    android:id="@+id/layoutTopProducts_fragbuy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:padding="@dimen/_8sdp">
+
+                    <TextView
+                        fontPath="fonts/SF-UI-Display-Medium.otf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="Top Products"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <TextView
+                        android:id="@+id/txt_more_top_products"
+                        fontPath="fonts/SF-UI-Display-Bold.otf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="More ..."
+                        android:clickable="true"
+                        android:onClick="@{()->view.onMoreTopProductsClick()}"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/_12sdp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/ll_top_content_view"
+                    android:layout_width="match_parent"
+                    android:nestedScrollingEnabled="false"
+                    android:layout_height="wrap_content">
+
+                    <com.yarolegovich.discretescrollview.DiscreteScrollView
+                        android:id="@+id/discrete_top_products"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:dsv_orientation="horizontal"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:layout_marginRight="@dimen/_4sdp"
+                        android:layout_marginLeft="@dimen/_4sdp"/>
+
+                    <TextView
+                        android:id="@+id/layout_empty_top"
+                        fontPath="fonts/SF-UI-Display-Medium.otf"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_120sdp"
+                        android:gravity="center"
+                        android:text="Product Not Available!"
+                        android:textSize="@dimen/_16sdp"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/layoutRecentProducts_fragbuy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:padding="@dimen/_8sdp">
+
+                    <TextView
+                        fontPath="fonts/SF-UI-Display-Medium.otf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="Recent Products"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <TextView
+                        android:id="@+id/txt_more_recent_products"
+                        fontPath="fonts/SF-UI-Display-Bold.otf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="More ..."
+                        android:clickable="true"
+                        android:onClick="@{()->view.onMoreRecentProductsClick()}"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/_12sdp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/ll_recent_content_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <com.yarolegovich.discretescrollview.DiscreteScrollView
+                        android:id="@+id/discrete_recent_products"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:dsv_orientation="horizontal"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:layout_marginRight="@dimen/_4sdp"
+                        android:layout_marginLeft="@dimen/_4sdp"/>
+
+
+                    <TextView
+                        android:id="@+id/layout_empty_recent"
+                        fontPath="fonts/SF-UI-Display-Medium.otf"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_120sdp"
+                        android:gravity="center"
+                        android:text="Product Not Available!"
+                        android:textSize="@dimen/_16sdp"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+    </com.kennyc.view.MultiStateView>
+
+</layout>

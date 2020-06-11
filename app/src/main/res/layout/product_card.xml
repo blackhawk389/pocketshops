@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_8sdp"
+        android:layout_marginRight="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_3sdp">
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackgroundBorderless">
+
+            <ImageView
+                android:id="@+id/imgProduct_productitem"
+                android:layout_width="match_parent"
+                android:scaleType="centerCrop"
+                android:layout_height="@dimen/_80sdp"/>
+
+            <TextView android:id="@+id/txtProductName_productitem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imgProduct_productitem"
+                android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+                android:textSize="@dimen/_10sdp"
+                tools:text="The Florida Model"
+                android:paddingLeft="@dimen/_4sdp"
+                android:paddingRight="@dimen/_7sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:ellipsize="end"
+                android:paddingBottom="@dimen/_2sdp"
+                />
+
+            <TextView
+                android:id="@+id/txtProduct_sellername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtProductName_productitem"
+                android:paddingLeft="@dimen/_4sdp"
+                tools:text="testuser20"
+                android:textSize="@dimen/_9sdp"
+                android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Subtitle"/>
+
+
+            <TextView
+                android:id="@+id/txtProduct_productrating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtProductName_productitem"
+                android:layout_alignParentRight="true"
+                tools:text="3.4"
+                android:drawableLeft="@drawable/ic_star_primary"
+                android:drawableTint="@color/colorPrimary"
+                android:gravity="center"
+                android:textSize="@dimen/_10sdp"
+                android:drawablePadding="@dimen/_2sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Subtitle"/>
+
+            <com.like.LikeButton
+                android:id="@+id/likeButton_productitem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                app:dots_primary_color="@color/colorPrimary"
+                app:dots_secondary_color="@color/colorAccent"
+                app:circle_start_color="@color/colorPrimary"
+                app:circle_end_color="@android:color/white"
+                app:anim_scale_factor="1"
+                app:icon_size="@dimen/_20sdp"
+                app:icon_type="heart"
+                app:like_drawable="@drawable/ic_like_pressed"
+                app:unlike_drawable="@drawable/ic_like_normal"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

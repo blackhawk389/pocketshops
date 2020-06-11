@@ -1,0 +1,39 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="view"
+            type="com.appabilities.sold.screens.home.fragment.sell.SellContract.View" />
+
+        <variable
+            name="presenter"
+            type="com.appabilities.sold.screens.home.fragment.sell.SellPresenter" />
+
+    </data>
+
+    <com.kennyc.view.MultiStateView
+        android:id="@+id/multiSateView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:msv_emptyView="@layout/empty_view"
+        app:msv_errorView="@layout/error_view"
+        app:msv_loadingView="@layout/loading_view"
+        app:msv_viewState="loading"
+        android:background="#EEEEEE"
+        tools:context="com.appabilities.sold.screens.home.fragment.sell.view.SellFragment">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerSell"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:layout_marginRight="@dimen/_4sdp"
+            android:layout_marginLeft="@dimen/_4sdp"/>
+
+    </com.kennyc.view.MultiStateView>
+</layout>

@@ -1,0 +1,2 @@
+include ':app', ':oppwa.mobile-2.5.0', ':cardform'
+project(':cardform').projectDir = new File('CardForm-master/cardform')

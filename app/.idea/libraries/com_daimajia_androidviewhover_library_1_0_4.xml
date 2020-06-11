@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="com.daimajia.androidviewhover:library-1.0.4">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-1.0.4.aar/ffc4c0ae845e83441ef855dfe8c4411e/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-1.0.4.aar/ffc4c0ae845e83441ef855dfe8c4411e/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.daimajia.androidviewhover/library/1.0.4/10be499d59dec651b975d3cc47d7af78da5ae263/library-1.0.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

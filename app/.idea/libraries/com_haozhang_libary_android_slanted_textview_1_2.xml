@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="com.haozhang.libary:android-slanted-textview-1.2">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/android-slanted-textview-1.2.aar/6f66829bcf83a23d0eaaab026a25ccff/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/android-slanted-textview-1.2.aar/6f66829bcf83a23d0eaaab026a25ccff/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.haozhang.libary/android-slanted-textview/1.2/a651159c4eb968e30c53573374a9aa7181895541/android-slanted-textview-1.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

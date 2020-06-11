@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white">
+
+            <TextView
+                android:id="@+id/txtErrorLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="Error"
+                android:visibility="gone"
+                android:textSize="@dimen/_14ssp"/>
+
+            <ProgressBar
+                android:id="@+id/progress"
+                style="?android:progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:orientation="vertical"
+                android:theme="@style/AppTheme.WhiteAccent" />
+
+            <LinearLayout
+                android:id="@+id/layoutContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="invisible"
+                tools:ignore="MissingPrefix">
+
+                <EditText
+                    android:id="@+id/txtKeywords_searchpopup"
+                    fontPath="fonts/SF-UI-Display-Light.otf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_30sdp"
+                    android:layout_marginRight="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/edittext_rounded_selector"
+                    android:hint="What are you looking for?"
+                    android:padding="@dimen/_8sdp"
+                    android:textColor="@color/editTextColorDark"
+                    android:textColorHint="@color/editTextColor"
+                    android:textStyle="normal" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_30sdp"
+                    android:layout_marginRight="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_10sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:text="Price"
+                        android:textSize="@dimen/_13sdp" />
+
+                    <TextView
+                        android:id="@+id/txtPriceRange_searchpopup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="SAR 0 - SAR 10"
+                        android:textSize="@dimen/_13sdp" />
+
+                    <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
+                        android:id="@+id/rangePrice_searchpopup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/txtPriceRange_searchpopup"
+                        app:bar_color="@color/colorNavItemText"
+                        app:bar_highlight_color="@color/colorPrimary"
+                        app:gap="100"
+                        app:left_thumb_color="@color/colorPrimary"
+                        app:left_thumb_color_pressed="@color/colorPrimaryDark"
+                        app:max_value="1000"
+                        app:min_value="0"
+                        app:right_thumb_color="@color/colorPrimary"
+                        app:right_thumb_color_pressed="@color/colorPrimaryDark"
+                        app:steps="50" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:layout_marginLeft="@dimen/_30sdp"
+                    android:layout_marginRight="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Categories"
+                    android:textSize="@dimen/_13sdp" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_30sdp"
+                    android:layout_marginRight="@dimen/_30sdp"
+                    android:background="@drawable/edittext_rounded_selector"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_1sdp"
+                    android:weightSum="100">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/spinnerCategory_searchpopup"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="85"
+                        android:background="@android:color/white"
+                        android:hint="Select Category"
+                        android:inputType="none"
+                        android:focusableInTouchMode="false"
+                        android:focusable="false"
+                        android:longClickable="false"
+                        android:padding="@dimen/_8sdp"
+                        android:spinnerMode="dropdown"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <ImageView
+                        android:id="@+id/imgDropDownCategory"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_weight="15"
+                        android:background="@color/colorPrimary"
+                        android:padding="@dimen/_5sdp"
+                        app:srcCompat="@drawable/ic_arrow_down" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:layout_marginLeft="@dimen/_30sdp"
+                    android:layout_marginRight="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Subcategories"
+                    android:textSize="@dimen/_13sdp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_30sdp"
+                    android:layout_marginRight="@dimen/_30sdp"
+                    android:background="@drawable/edittext_rounded_selector"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_1sdp"
+                    android:weightSum="100">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/spinnerSubCategory_searchpopup"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="85"
+                        android:background="@android:color/white"
+                        android:hint="Select SubCategory"
+                        android:inputType="none"
+                        android:focusableInTouchMode="false"
+                        android:focusable="false"
+                        android:longClickable="false"
+                        android:padding="@dimen/_8sdp"
+                        android:spinnerMode="dropdown"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <ImageView
+                        android:id="@+id/imgDropDownSubCategory"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_weight="15"
+                        android:background="@color/colorPrimary"
+                        android:padding="@dimen/_5sdp"
+                        app:srcCompat="@drawable/ic_arrow_down" />
+
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/txtSellerName_searchpopup"
+                    fontPath="fonts/SF-UI-Display-Light.otf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_30sdp"
+                    android:layout_marginRight="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/edittext_rounded_selector"
+                    android:hint="Search By Seller Name"
+                    android:padding="@dimen/_8sdp"
+                    android:textColor="@color/editTextColorDark"
+                    android:textColorHint="@color/editTextColor"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:layout_marginLeft="@dimen/_30sdp"
+                    android:layout_marginRight="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Sort/Filter"
+                    android:textSize="@dimen/_13sdp" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_30sdp"
+                    android:layout_marginRight="@dimen/_30sdp"
+                    android:background="@drawable/edittext_rounded_selector"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_1sdp"
+                    android:weightSum="100">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/spinner_sort_type"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="85"
+                        android:background="@android:color/white"
+                        android:hint="Select Sort Type"
+                        android:padding="@dimen/_8sdp"
+                        android:spinnerMode="dropdown"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <ImageView
+                        android:id="@+id/imgSortType"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_weight="15"
+                        android:background="@color/colorPrimary"
+                        android:padding="@dimen/_5sdp"
+                        app:srcCompat="@drawable/ic_arrow_down" />
+
+                </LinearLayout>
+
+                <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
+                    android:id="@+id/btnSearchProducts"
+                    style="@style/MyButton"
+                    fontPath="fonts/SF-UI-Display-Bold.otf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:layout_marginLeft="@dimen/_50sdp"
+                    android:layout_marginRight="@dimen/_50sdp"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:gravity="center"
+                    android:text="SEARCH"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/_16sdp"
+                    android:textStyle="bold"
+                    app:spinning_bar_color="@android:color/white"
+                    app:spinning_bar_padding="3dp" />
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+</layout>

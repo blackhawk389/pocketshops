@@ -1,0 +1,26 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="view"
+            type="com.appabilities.sold.screens.seller_profile.fragment.product_list.ProductListContract.View"/>
+        <variable
+            name="presenter"
+            type="com.appabilities.sold.screens.seller_profile.fragment.product_list.ProductListPresenter"/>
+    </data>
+
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_seller_products"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:layout_marginLeft="@dimen/_4sdp"
+            android:layout_marginRight="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            tools:context="com.appabilities.sold.screens.seller_profile.fragment.product_list.view.ProductListFragment"/>
+</layout>

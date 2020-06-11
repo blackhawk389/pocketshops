@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="categoryModel"
+            type="com.appabilities.sold.networking.response.CategoriesResponse" />
+    </data>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_marginLeft="@dimen/_3sdp"
+        android:layout_marginRight="@dimen/_3sdp"
+        android:clickable="true"
+        tools:ignore="MissingPrefix">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/imgCategory"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_110sdp"
+            android:layout_centerInParent="true"
+            android:src="@{categoryModel.categoryImg}"
+            fresco:actualImageScaleType="fitXY"
+            fresco:placeholderImage="@color/colorVeryLightGray"
+            android:clickable="false"
+            fresco:roundAsCircle="false" />
+
+        <TextView
+            android:id="@+id/txtCategoryName"
+            fontPath="fonts/SF-UI-Display-Bold.otf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:clickable="false"
+            android:gravity="center"
+            android:padding="@dimen/_5sdp"
+            android:shadowColor="#D000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="4"
+            android:layout_gravity="center"
+            android:text="@{categoryModel.categoryName.toUpperCase()}"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_25sdp"
+            android:textStyle="bold"
+            tools:text="CARS" />
+
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

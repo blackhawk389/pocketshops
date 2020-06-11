@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CardForm-master/cardform/CardForm-master-cardform.iml" filepath="$PROJECT_DIR$/CardForm-master/cardform/CardForm-master-cardform.iml" group="pocketshop-android/cardform" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CardForm-master/cardform/cardform.iml" filepath="$PROJECT_DIR$/CardForm-master/cardform/cardform.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oppwa.mobile-2.5.0/oppwa.mobile-2.5.0.iml" filepath="$PROJECT_DIR$/oppwa.mobile-2.5.0/oppwa.mobile-2.5.0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pocketshop-android.iml" filepath="$PROJECT_DIR$/pocketshop-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/pocketshop-android-app.iml" filepath="$PROJECT_DIR$/app/pocketshop-android-app.iml" group="pocketshop-android/app" />
+      <module fileurl="file://$PROJECT_DIR$/oppwa.mobile-2.5.0/pocketshop-android-oppwa.mobile-2.5.0.iml" filepath="$PROJECT_DIR$/oppwa.mobile-2.5.0/pocketshop-android-oppwa.mobile-2.5.0.iml" group="pocketshop-android/oppwa.mobile-2.5.0" />
+      <module fileurl="file://$PROJECT_DIR$/pocketshops-pocketshop-android.iml" filepath="$PROJECT_DIR$/pocketshops-pocketshop-android.iml" group="pocketshop-android" />
+    </modules>
+  </component>
+</project>

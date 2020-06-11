@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.appabilities.sold">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name=".MyApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_pocketshop"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_pocketshop"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon">
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="pocket-shops.com"
+                    android:scheme="http" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".base.sidemenu.SideMenuBaseActivity"
+            android:label="SideMenuBaseActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".screens.login.view.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".screens.registration.view.RegistrationActivity"
+            android:label="Register" />
+        <activity
+            android:name=".screens.create_profile.view.CreateProfileActivity"
+            android:label="Create Profile" />
+        <activity
+            android:name=".screens.select_categories.view.SelectCategoriesActivity"
+            android:label="Select Categories" />
+        <activity
+            android:name=".screens.home.view.HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".screens.categories.view.CategoriesActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".screens.my_products.view.MyProductsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".screens.product_detail.view.ProductDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".screens.my_product_detail.view.MyProductDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".screens.filters.view.FiltersActivity" />
+        <activity android:name=".screens.sub_category.view.SubCategoryActivity" />
+        <activity android:name=".screens.show_products.view.ShowProductsActivity" />
+        <activity
+            android:name=".screens.add_product.view.AddProductActivity"
+            android:label="Add Product" />
+        <activity android:name=".screens.add_auction.view.AddAuctionActivity" />
+        <activity android:name=".screens.shopping_cart.view.ShoppingCartActivity" />
+        <activity android:name=".screens.confirm_order.view.ConfirmOrderActivity" />
+        <activity
+            android:name=".screens.my_orders.view.MyOrderActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".screens.my_order_detail.view.MyOrderDetailActivity" />
+        <activity
+            android:name=".screens.my_sale.view.MySaleActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".screens.my_sale_detail.view.SaleDetailActivity" />
+        <activity
+            android:name=".screens.settings.view.SettingsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".screens.change_password.view.ChangePasswordActivity" />
+        <activity android:name=".screens.place_bid.view.PlaceBidActivity" />
+        <activity
+            android:name=".screens.auction.view.MyAuctionActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".screens.auction_bid.view.AuctionBidActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".screens.product_bids.view.ProductBidsActivity" />
+        <activity
+            android:name=".screens.advertisement.view.AdvertisementActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".screens.add_advertisement.view.AddAdvertisementActivity" />
+        <activity android:name=".screens.add_detail_advertisement.view.AddDetailAdvertActivity" />
+        <activity
+            android:name="com.oppwa.mobile.connect.checkout.dialog.CheckoutActivity"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.Checkout.Light"
+            android:windowSoftInputMode="adjustPan"
+            tools:replace="android:theme" />
+
+        <service
+            android:name="com.oppwa.mobile.connect.service.ConnectService"
+            android:exported="false" />
+
+        <activity
+            android:name=".screens.seller_profile.view.SellerProfileActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".screens.request.view.RequestActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".screens.add_request.view.AddRequestActivity" />
+        <activity android:name=".screens.add_offer.view.AddOfferActivity" />
+        <activity
+            android:name=".screens.request_detail.view.RequestDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".screens.forget_password.view.ForgetPasswordActivity" />
+        <activity
+            android:name=".screens.user_profile.view.UserProfileActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".screens.search_seller.view.SearchSellerActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <!-- Firebase Notifications -->
+        <service android:name=".fcm.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".fcm.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".screens.my_account.view.MyAccountActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".screens.view_offer.view.ViewOfferActivity" />
+        <activity android:name=".screens.offer.view.OfferActivity" />
+        <activity
+            android:name=".screens.chat_with_seller.chat_activity.view.ChatWithSellerActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".screens.confirm_order.view.PaymentScreen" />
+        <activity
+            android:name=".screens.chat_with_seller.chat_list.ChatListActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".screens.privacy_policy.PrivacyPolicyActivity" />
+        <activity android:name=".screens.payment_webview.OnlinePaymentActivity"></activity>
+        <provider
+            android:name=".utils.GenericFileProvider"
+            android:authorities="com.appabilities.sold.utils.GenericFileProvider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filestore" />
+        </provider>
+    </application>
+
+</manifest>

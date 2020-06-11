@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="view"
+            type="com.appabilities.sold.screens.product_detail.ProductDetailContract.View" />
+
+        <variable
+            name="presenter"
+            type="com.appabilities.sold.screens.product_detail.ProductDetailPresenter" />
+
+        <variable
+            name="productDetail"
+            type="com.appabilities.sold.networking.response.ProductResponse" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <com.appabilities.sold.custom.ControllableAppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_scrollFlags="scroll"
+                app:contentScrim="@color/colorPrimary"
+                app:statusBarScrim="@color/colorPrimary"
+                android:fitsSystemWindows="true">
+
+                <ImageView
+                    android:id="@+id/imgPhoto_productdetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_200sdp"
+                    android:layout_gravity="center"
+                    android:adjustViewBounds="true"
+                    android:maxHeight="@dimen/_200sdp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/default_profile"
+                    android:visibility="visible"
+                    app:layout_collapseMode="parallax" />
+
+                <com.daimajia.slider.library.SliderLayout
+                    android:id="@+id/sliderPhotos_productdetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_200sdp"
+                    android:layout_gravity="center"
+                    android:adjustViewBounds="true"
+                    android:visibility="gone"
+                    app:layout_collapseMode="parallax" />
+
+                <com.haozhang.lib.SlantedTextView
+                    android:id="@+id/slantedAuctionable_productdetails"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_70sdp"
+                    android:layout_gravity="left|bottom"
+                    android:gravity="center"
+                    android:padding="@dimen/_5sdp"
+                    android:visibility="gone"
+                    app:slantedBackgroundColor="#FF0000"
+                    app:slantedLength="@dimen/_30sdp"
+                    app:slantedMode="left_bottom_triangle"
+                    app:slantedText="Auction"
+                    app:slantedTextColor="@android:color/white"
+                    app:slantedTextSize="@dimen/_15sdp" />
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin"
+                    android:elevation="15dp"
+                    android:background="@android:color/transparent"
+                    local:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    local:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    app:navigationIcon="?attr/homeAsUpIndicator">
+
+                    <TextView
+                        android:id="@+id/title_toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:text=""
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/textColorPrimary"
+                        android:textSize="20sp"
+                        android:gravity="left"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true" />
+
+
+                </androidx.appcompat.widget.Toolbar>
+
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.appabilities.sold.custom.ControllableAppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <!-- name info -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/colorPrimary">
+
+                    <TextView android:id="@+id/txtTitle_productdetails"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        tools:text="Rolex Watch"
+                        android:text="@{productDetail.productTitle}"
+                        fontPath="fonts/SF-UI-Display-Bold.otf"
+                        android:textSize="@dimen/_18sdp"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:textColor="@color/textColorPrimary"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_toLeftOf="@+id/ratingProduct_productdetails"
+                        android:layout_toStartOf="@+id/ratingProduct_productdetails" />
+
+                    <com.iarcuschin.simpleratingbar.SimpleRatingBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ratingProduct_productdetails"
+                        app:srb_starSize="@dimen/_15sdp"
+                        app:srb_numberOfStars="5"
+                        app:srb_rating="0"
+                        app:srb_stepSize="0.5"
+                        app:srb_borderColor="@android:color/white"
+                        app:srb_fillColor="@android:color/white"
+                        app:srb_starBorderWidth="2"
+                        app:srb_starCornerRadius="0"
+                        app:srb_isIndicator="true"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_above="@+id/txtReviewsNum_productdetails" />
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:layout_below="@+id/txtTitle_productdetails"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="@dimen/_minus4sdp"
+                        android:clickable="true"
+                        android:onClick="@{()->view.onClickSellerProfile()}"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        >
+
+                        <com.facebook.drawee.view.SimpleDraweeView
+                            android:id="@+id/imgSeller_productdetails"
+                            android:layout_width="@dimen/_35sdp"
+                            android:layout_height="@dimen/_35sdp"
+                            android:padding="@dimen/_3sdp"
+                            fresco:placeholderImage="@color/colorVeryLightGray"
+                            fresco:actualImageScaleType="focusCrop"
+                            fresco:roundAsCircle="true"
+                            android:clickable="false"
+                            android:src="@{productDetail.productOwnerAvatar}"
+                            fresco:roundingBorderWidth="@dimen/_2sdp"
+                            fresco:roundingBorderColor="@android:color/white"
+                            />
+
+                        <TextView android:id="@+id/txtSeller_productdetails"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="John Doe"
+                            android:clickable="false"
+                            fontPath="fonts/SF-UI-Display-Bold.otf"
+                            android:textSize="@dimen/_12sdp"
+                            android:textStyle="bold"
+                            android:text="@{productDetail.productOwner}"
+                            android:textColor="@color/textColorPrimary"
+                            android:layout_marginLeft="@dimen/_3sdp"
+                            />
+
+                    </LinearLayout>
+
+                    <TextView android:id="@+id/txtReviewsNum_productdetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="21 Reviews"
+                        android:text="@{@string/review_str(productDetail.reviews)}"
+                        fontPath="fonts/SF-UI-Display-Bold.otf"
+                        android:textSize="@dimen/_12sdp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/txtTitle_productdetails"
+                        android:textColor="@color/textColorPrimary"
+                        />
+
+                    <TextView android:id="@+id/txtColor_productdetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="Color: N/A"
+                        android:text="@{@string/color_str(productDetail.color)}"
+                        fontPath="fonts/SF-UI-Display-Bold.otf"
+                        android:textSize="@dimen/_10sdp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/txtReviewsNum_productdetails"
+                        android:textColor="@color/textColorPrimary"
+                        />
+
+                    <TextView android:id="@+id/txtSize_productdetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="Size: N/A"
+                        android:text="@{@string/size_str(productDetail.size)}"
+                        fontPath="fonts/SF-UI-Display-Bold.otf"
+                        android:textSize="@dimen/_10sdp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:textColor="@color/textColorPrimary"
+                        android:layout_toLeftOf="@+id/txtColor_productdetails"
+                        android:layout_below="@+id/txtReviewsNum_productdetails"/>
+
+
+                </RelativeLayout>
+
+                <!-- price info -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp">
+
+                    <LinearLayout
+                        android:paddingRight="@dimen/_10sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true">
+
+                        <TextView android:id="@+id/txtQuantity_productdetails"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="125"
+                            android:text="@{productDetail.quantity}"
+                            fontPath="fonts/SF-UI-Display-Bold.otf"
+                            android:textStyle="bold"
+                            android:gravity="center_horizontal"
+                            android:textColor="@color/editTextColorDark"
+                            android:textSize="@dimen/_20sdp" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="items left!"
+                            fontPath="fonts/SF-UI-Display-Medium.otf"
+                            android:textColor="@color/editTextColorDark"
+                            android:textSize="@dimen/_13sdp"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/txtPrice_productdetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="$800"
+                        android:text="@{@string/amount_str(productDetail.price)}"
+                        fontPath="fonts/SF-UI-Display-Bold.otf"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/_30sdp"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:layout_alignParentTop="true" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/colorNavItemText"/>
+
+                <TextView android:id="@+id/txtDetails_productdetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_10sdp"
+                    fontPath="fonts/SF-UI-Display-Medium.otf"
+                    android:textSize="@dimen/_16sdp"
+                    android:text="@{productDetail.productDesc}"
+                    tools:text="Rolex SA is a Swiss luxury watchmaker. The company and its subsidiary Montres Tudor SA design, manufacture, distribute and service wristwatches sold under the Rolex and Tudor brands. Founded by Hans Wilsdorf and Alfred Davis in London, England in 1905 as Wilsdorf and Davis, Rolex moved its base of operations to Geneva, Switzerland in 1919."/>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_55sdp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/top_border_rectangle"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.like.LikeButton
+                    android:id="@+id/btnLike_productdetails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:anim_scale_factor="1"
+                    app:icon_size="@dimen/_30sdp"
+                    app:icon_type="heart"
+                    app:like_drawable="@drawable/ic_like_pressed"
+                    app:unlike_drawable="@drawable/ic_like_normal" />
+
+                <TextView
+                    fontPath="fonts/SF-UI-Display-Bold.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Like"
+                    android:textSize="@dimen/_12sdp" />
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/layoutBid_productdetails"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:clickable="true"
+                android:visibility="gone"
+                android:onClick="@{()->view.onClickBid()}"
+                android:orientation="vertical">
+
+                <com.like.LikeButton
+                    android:id="@+id/btnPlaceBid_productdetails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:anim_scale_factor="1"
+                    app:icon_size="@dimen/_30sdp"
+                    app:icon_type="heart"
+                    android:clickable="true"
+                    app:is_enabled="true"
+                    app:like_drawable="@drawable/ic_bid_product"
+                    app:unlike_drawable="@drawable/ic_bid_product"/>
+
+                <TextView
+                    fontPath="fonts/SF-UI-Display-Bold.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Bid"
+                    android:clickable="false"
+                    android:textSize="@dimen/_12sdp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_buy"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="@{()->view.onClickBuy()}"
+                android:orientation="vertical">
+
+                <com.like.LikeButton
+                    android:id="@+id/btnBuy_productdetails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:anim_scale_factor="1"
+                    app:icon_size="@dimen/_30sdp"
+                    app:icon_type="heart"
+                    app:is_enabled="true"
+                    android:clickable="true"
+                    app:like_drawable="@drawable/ic_buy"
+                    app:unlike_drawable="@drawable/ic_buy"/>
+
+                <TextView
+                    android:id="@+id/textView3"
+                    fontPath="fonts/SF-UI-Display-Bold.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Buy"
+                    android:clickable="false"
+                    android:textSize="@dimen/_12sdp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:clickable="true"
+                android:onClick="@{()->view.onClickChat()}"
+                android:orientation="vertical">
+
+                <com.like.LikeButton
+                    android:id="@+id/btnChat_productitem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:anim_scale_factor="1"
+                    app:icon_size="@dimen/_30sdp"
+                    app:icon_type="heart"
+                    app:is_enabled="true"
+                    android:clickable="true"
+                    app:like_drawable="@drawable/ic_chat"
+                    app:unlike_drawable="@drawable/ic_chat"/>
+
+                <TextView
+                    fontPath="fonts/SF-UI-Display-Bold.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Chat"
+                    android:clickable="false"
+                    android:textSize="@dimen/_12sdp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

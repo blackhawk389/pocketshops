@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="requestItem"
+            type="com.appabilities.sold.networking.response.RequestResponse" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_4sdp"
+        android:layout_marginLeft="@dimen/_8sdp"
+        android:layout_marginRight="@dimen/_8sdp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        tools:ignore="MissingPrefix">
+
+        <LinearLayout
+            android:id="@+id/layoutRoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:clickable="false">
+
+            <RelativeLayout
+                android:id="@+id/layoutRoot_biditem"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:orientation="horizontal"
+                android:padding="@dimen/_7sdp"
+                tools:ignore="MissingPrefix">
+
+                <TextView
+                    android:id="@+id/txt_category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_5sdp"
+                    tools:text="Category->SubCategory" ></TextView>
+
+                <TextView
+                    android:id="@+id/txt_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/txt_product_details"
+                    android:padding="@dimen/_5sdp"
+                    tools:text="2 Hours Ago" />
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/img_product"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/txt_category"
+                    android:scaleType="centerCrop"
+                    android:src="@{requestItem.imgName}"
+                    android:transitionName="transitionProductImage"
+                    fresco:actualImageScaleType="centerCrop"
+                    fresco:fadeDuration="300"
+                    fresco:placeholderImage="@color/light_bg_gray_color"
+                    fresco:placeholderImageScaleType="fitCenter"
+                    fresco:roundAsCircle="false" />
+
+                <TextView
+                    android:id="@+id/txt_product_title"
+                    fontPath="fonts/SF-UI-Display-Bold.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_category"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_toRightOf="@+id/img_product"
+                    android:gravity="center"
+                    tools:text="Request Name"
+                    android:text="@{requestItem.productTitle}"
+                    android:textColor="#434343"
+                    android:textSize="@dimen/_15sdp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_product_details"
+                    fontPath="fonts/SF-UI-Display-Bold.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_below="@+id/txt_product_title"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_1sdp"
+                    android:layout_toRightOf="@+id/img_product"
+                    android:gravity="top"
+                    tools:text="Request details and feature request"
+                    android:text="@{requestItem.productDesc}"
+                    android:textColor="#bebebe"
+                    android:textSize="@dimen/_12sdp" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:background="#e7e7e7" />
+
+            <RelativeLayout
+                android:id="@+id/layout_request"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fafafa"
+                android:visibility="visible">
+
+                <Button
+                    android:id="@+id/btn_make_offer"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_add_offer"
+                    android:drawablePadding="@dimen/_4sdp"
+                    android:drawableTint="#929292"
+                    android:text="View Offer"
+                    android:textColor="#929292"
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+                <Button
+                    android:id="@+id/btn_chat"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:drawableLeft="@drawable/ic_chat"
+                    android:drawablePadding="@dimen/_4sdp"
+                    android:drawableTint="#929292"
+                    android:gravity="center_vertical"
+                    android:text="Chat"
+                    android:clickable="true"
+                    android:textColor="#929292"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layout_my_request"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fafafa"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/btn_view_offer"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:drawableLeft="@drawable/ic_local_offer"
+                    android:drawablePadding="@dimen/_4sdp"
+                    android:drawableTint="#929292"
+                    android:text="View Offer (3)"
+                    android:clickable="true"
+                    android:textColor="#929292"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

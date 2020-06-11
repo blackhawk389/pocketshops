@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="view"
+            type="com.appabilities.sold.screens.product_review.ReviewContract.View" />
+
+        <variable
+            name="presenter"
+            type="com.appabilities.sold.screens.product_review.ReviewPresenter" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:minHeight="@dimen/_250sdp"
+        android:minWidth="1000dp"
+        android:orientation="vertical">
+
+        <com.iarcuschin.simpleratingbar.SimpleRatingBar
+            android:id="@+id/rating_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:isIndicator="false"
+            android:numStars="5"
+            android:rating="0"
+            android:stepSize="1"
+            app:srb_starSize="@dimen/_30sdp"
+            app:srb_stepSize="1" />
+
+        <EditText
+            android:id="@+id/txt_comments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:background="@drawable/edittext_rounded_selector"
+            android:gravity="top|left"
+            android:hint="@string/txt_comment"
+            android:lines="6"
+            android:padding="@dimen/_10sdp"
+            android:textSize="@dimen/_12sdp" />
+
+        <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
+            android:id="@+id/btn_submit_review"
+            fontPath="fonts/SF-UI-Display-Bold.otf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_30sdp"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:background="@color/colorPrimary"
+            android:onClick="@{()->view.onClickSubmitReview()}"
+            android:padding="@dimen/_6sdp"
+            android:text="SUBMIT REVIEW"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_16sdp"
+            android:textStyle="bold"
+            app:spinning_bar_color="@color/colorPrimary"
+            app:spinning_bar_padding="3dp" />
+
+    </LinearLayout>
+</layout>

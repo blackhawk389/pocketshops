@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="orderDetailModel"
+            type="com.appabilities.sold.networking.response.OrderResponseDetail"/>
+    </data>
+
+
+    <RelativeLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/_5sdp"
+    android:paddingBottom="@dimen/_5sdp">
+
+    <TextView
+        android:id="@+id/txtName_fooditem"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        tools:text="@string/food_item_str"
+        android:ellipsize="end"
+        android:paddingEnd="@dimen/_2sdp"
+        android:paddingRight="@dimen/_2sdp"
+        android:maxLines="2"
+        android:textColor="@color/text_darker_gray_color"
+        android:textSize="@dimen/_12sdp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/txt_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        tools:text="DELIVERED"
+        android:text="@{orderDetailModel.orderStatus}"
+        android:textColor="#03aa05"
+        android:layout_below="@+id/txtName_fooditem"
+        android:textSize="@dimen/_14sdp" />
+
+    <TextView
+        android:id="@+id/txtItemPrice_cartitem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="SR 10.00"
+        android:text="@{@string/amount_str(orderDetailModel.productAmt)}"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:textSize="@dimen/_12sdp"
+        android:textStyle="bold"
+        android:gravity="end"
+        android:textColor="@color/text_darker_gray_color"
+        />
+
+    <TextView
+        android:id="@+id/btnPlaceOrder_confirm"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/colorPrimary"
+        android:clickable="true"
+        android:gravity="center"
+        android:padding="@dimen/_6sdp"
+        android:text="@string/txt_product_recieved"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/_10sdp"
+        android:visibility="gone"
+        android:textStyle="bold"
+        android:layout_alignTop="@+id/txt_status"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ProgressBar
+        android:id="@+id/progress_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_alignTop="@+id/txt_status"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        style="?android:attr/progressBarStyleSmall"
+        android:visibility="gone" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:visibility="gone"
+        android:background="@color/light_bg_gray_color"
+        android:layout_below="@+id/txtName_fooditem"
+        android:layout_marginTop="@dimen/_5sdp" />
+
+</RelativeLayout>
+</layout>

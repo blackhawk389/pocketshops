@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "677961618772",
+    "firebase_url": "https://pocket-shops.firebaseio.com",
+    "project_id": "pocket-shops",
+    "storage_bucket": "pocket-shops.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:677961618772:android:2b0210d7ab52eafc",
+        "android_client_info": {
+          "package_name": "com.appabilities.sold"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "677961618772-lodd0m6qojku9ijmplu26b7ubgg0gu40.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAH4hkoRFxRr5cKgtHQzocVpQ-YNYpFbOg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

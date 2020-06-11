@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="view"
+            type="com.appabilities.sold.screens.my_order_detail.MyOrderDetailContract.View" />
+
+        <variable
+            name="presenter"
+            type="com.appabilities.sold.screens.my_order_detail.MyOrderDetailPresenter" />
+        <variable
+            name="orderItem"
+            type="com.appabilities.sold.networking.response.OrderResponse"/>
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#eeeeee"
+        tools:ignore="MissingPrefix">
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_3sdp"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/txt_tracking_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="@{@string/tracking_str(orderItem.orderID)}"
+                    tools:text="Tracking ID : 10000005"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    tools:text="2017-01-10"
+                    android:text="@{orderItem.orderDate}"
+                    android:textColor="@color/text_light_gray_color"
+                    android:textSize="@dimen/_14sdp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:background="@color/card_background_color">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_9sdp">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerItems_confirm"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_1sdp"
+                            android:layout_marginBottom="@dimen/_8sdp"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:background="@color/light_bg_gray_color" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:text="@string/subtotal_str"
+                                android:textColor="@color/text_light_gray_color" />
+
+                            <TextView
+                                android:id="@+id/txtSubTotal_confirm"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentTop="true"
+                                android:gravity="end"
+                                tools:text="SR 15.0"
+                                android:text="SAR 0.00"
+                                android:textColor="@color/text_light_gray_color" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_6sdp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:text="@string/vat"
+                                android:textColor="@color/text_light_gray_color" />
+
+                            <TextView
+                                android:id="@+id/taxes_amount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentTop="true"
+                                android:gravity="end"
+                                tools:text="SR 15.0"
+                                android:text="SAR 0.00"
+                                android:textColor="@color/text_light_gray_color" />
+
+                        </RelativeLayout>
+
+                       <!-- <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_6sdp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:text="@string/shipment_charges_str"
+                                android:textColor="@color/text_light_gray_color" />
+
+                            <TextView
+                                android:id="@+id/shipment_amount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentTop="true"
+                                android:gravity="end"
+                                tools:text="SR 15.0"
+                                android:text="SAR 0.00"
+                                android:textColor="@color/text_light_gray_color" />
+
+                        </RelativeLayout>-->
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_1sdp"
+                            android:layout_marginBottom="@dimen/_8sdp"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:background="@color/light_bg_gray_color" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="@dimen/_3sdp"
+                            android:paddingTop="@dimen/_3sdp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:text="@string/total_order_str"
+                                android:textColor="@color/text_dark_gray_color"
+                                android:textSize="@dimen/_17sdp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txtTotal_confirm"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentTop="true"
+                                android:gravity="end"
+                                tools:text="SR 50.0"
+                                android:text="@{@string/amount_str(orderItem.totalAmt)}"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/_17sdp"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="@string/txt_shipping_address"
+                    android:textColor="@color/text_light_gray_color"
+                    android:textSize="@dimen/_14sdp" />
+
+
+                <TextView
+                    android:id="@+id/txtAddress_confirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@color/card_background_color"
+                    android:hint="@string/shipping_address_str"
+                    android:padding="@dimen/_10sdp"
+                    android:text="@{orderItem.shippingAddress}"
+                    android:textColor="@color/text_dark_gray_color"
+                    android:textColorHint="@color/text_light_gray_color"
+                    android:textSize="@dimen/_13sdp" />
+
+                <TextView
+                    android:id="@+id/lblSellerDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@color/text_light_gray_color"
+                    android:hint="@string/shipping_address_str"
+                    android:padding="@dimen/_10sdp"
+                    android:text="@string/seller_details"
+                    android:textColor="@color/text_dark_gray_color"
+                    android:textColorHint="@color/text_light_gray_color"
+                    android:textSize="@dimen/_13sdp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="@string/lbl_full_name"
+                    android:textColor="@color/text_light_gray_color"
+                    android:textSize="@dimen/_14sdp" />
+
+
+                <TextView
+                    android:id="@+id/txtFullName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@color/card_background_color"
+                    android:hint="@string/shipping_address_str"
+                    android:padding="@dimen/_10sdp"
+                    android:text="@{orderItem.orderDetail.get(0).sellerDetail.fullName}"
+                    android:textColor="@color/text_dark_gray_color"
+                    android:textColorHint="@color/text_light_gray_color"
+                    android:textSize="@dimen/_13sdp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="@string/lbl_email"
+                    android:textColor="@color/text_light_gray_color"
+                    android:textSize="@dimen/_14sdp" />
+
+
+                <TextView
+                    android:id="@+id/txtEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@color/card_background_color"
+                    android:hint="@string/shipping_address_str"
+                    android:padding="@dimen/_10sdp"
+                    android:text="@{orderItem.orderDetail.get(0).sellerDetail.email}"
+                    android:textColor="@color/text_dark_gray_color"
+                    android:textColorHint="@color/text_light_gray_color"
+                    android:textSize="@dimen/_13sdp" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="@string/lbl_phone"
+                    android:textColor="@color/text_light_gray_color"
+                    android:textSize="@dimen/_14sdp" />
+
+
+                <TextView
+                    android:id="@+id/txtPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@color/card_background_color"
+                    android:hint="@string/phone_number_str"
+                    android:padding="@dimen/_10sdp"
+                    android:text="@{orderItem.orderDetail.get(0).sellerDetail.phone}"
+                    android:textColor="@color/text_dark_gray_color"
+                    android:textColorHint="@color/text_light_gray_color"
+                    android:textSize="@dimen/_13sdp" />
+
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

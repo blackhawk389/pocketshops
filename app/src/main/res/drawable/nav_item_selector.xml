@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- clicked -->
+    <item android:state_pressed="true">
+        <layer-list>
+            <item android:bottom="@dimen/_4sdp" android:right="@dimen/_5sdp">
+                <shape android:shape="rectangle"  >
+                    <solid android:color="@color/colorNavItemSelectedBackground" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+    <!-- focused -->
+    <item android:state_focused="true">
+        <layer-list>
+            <item android:bottom="@dimen/_4sdp" android:right="@dimen/_5sdp">
+                <shape android:shape="rectangle"  >
+                    <solid android:color="@color/colorNavItemSelectedBackground" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+
+    <!-- normal -->
+    <item >
+        <layer-list>
+            <item android:bottom="@dimen/_4sdp" android:right="@dimen/_5sdp">
+                <shape android:shape="rectangle"  >
+                    <solid android:color="@color/colorNavItemBackground" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <!-- button -->
+
+
+
+
+</selector>

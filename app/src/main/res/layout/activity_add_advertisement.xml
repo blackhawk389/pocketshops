@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="view"
+            type="com.appabilities.sold.screens.add_advertisement.AddAdvertisementContract.View"/>
+        <variable
+            name="presenter"
+            type="com.appabilities.sold.screens.add_advertisement.AddAdvertisementPresenter"/>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#EEEEEE">
+
+        <RelativeLayout
+            android:id="@+id/layout_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@drawable/edittext_rounded_selector"
+            android:orientation="horizontal">
+
+            <AutoCompleteTextView
+                android:id="@+id/spinnerCategory_ad"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@android:color/white"
+                android:hint="Select Product For Category Advertisement"
+                android:gravity="center_horizontal|center_vertical"
+                android:padding="@dimen/_8sdp"
+                android:spinnerMode="dropdown"
+                android:textSize="@dimen/_12ssp"
+                android:inputType="none"
+                android:editable="false"
+                android:clickable="false"
+                android:entries="@array/advertisement_array" />
+
+
+
+        </RelativeLayout>
+
+        <com.kennyc.view.MultiStateView
+            android:id="@+id/multiSateView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/layout_spinner"
+            app:msv_emptyView="@layout/empty_view"
+            app:msv_errorView="@layout/error_view"
+            app:msv_loadingView="@layout/loading_view"
+            app:msv_viewState="content">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recylerProducts_chooseproduct"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_8sdp" />
+
+        </com.kennyc.view.MultiStateView>
+
+        <com.github.clans.fab.FloatingActionMenu
+            android:id="@+id/floatActionMenu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|right"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            app:menu_backgroundColor="#cc000000"
+            android:paddingBottom="12dp"
+            android:paddingRight="12dp"
+            app:menu_colorNormal="@color/colorPrimary"
+            app:menu_colorPressed="@color/colorPrimaryDark"
+            app:menu_colorRipple="@color/colorAccent"
+            android:clipChildren="false"
+            app:menu_showShadow="true"
+            app:menu_labels_textColor="#454545"
+            app:menu_labels_colorNormal="#ffffff"
+            app:menu_labels_colorPressed="#e8e8e8">
+
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/fabNewAuction_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_business"
+                app:fab_size="mini"
+                android:onClick="@{()->view.onPublicAddClick()}"
+                app:fab_label="Add Public Advertisement"
+                app:fab_colorNormal="@color/colorPrimary"
+                app:fab_colorPressed="@color/colorPrimaryDark"/>
+
+
+        </com.github.clans.fab.FloatingActionMenu>
+
+    </RelativeLayout>
+</layout>

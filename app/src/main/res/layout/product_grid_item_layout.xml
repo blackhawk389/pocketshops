@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="productItem"
+            type="com.appabilities.sold.networking.response.ProductResponse" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_3sdp"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginRight="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_10sdp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:orientation="vertical">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/img_product_grid"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_80sdp"
+                    android:src="@{productItem.imgName}"
+                    fresco:actualImageScaleType="centerCrop"
+                    fresco:fadeDuration="300"
+                    fresco:placeholderImage="@color/light_bg_gray_color"
+                    fresco:placeholderImageScaleType="fitCenter"
+                    fresco:roundAsCircle="false" />
+
+                <com.haozhang.lib.SlantedTextView
+                    android:id="@+id/slantedAuctionable_productitem"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:gravity="center"
+                    app:slantedBackgroundColor="#FF0000"
+                    app:slantedLength="@dimen/_30sdp"
+                    app:slantedMode="left"
+                    app:slantedText="Auction"
+                    app:slantedTextColor="@android:color/white"
+                    app:slantedTextSize="@dimen/_10sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:visibility="invisible"
+                    />
+
+                <TextView
+                    android:id="@+id/txtProductName_productitem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/img_product_grid"
+                    android:ellipsize="end"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:paddingLeft="@dimen/_4sdp"
+                    android:paddingRight="@dimen/_7sdp"
+                    android:paddingTop="@dimen/_4sdp"
+                    android:text="@{productItem.productTitle}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+                    android:textSize="@dimen/_10sdp"
+                    tools:text="The Florida Model" />
+
+                <TextView
+                    android:id="@+id/txtProduct_sellername"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtProductName_productitem"
+                    android:paddingLeft="@dimen/_4sdp"
+                    android:text="@{productItem.productOwner}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+                    android:textSize="@dimen/_9sdp"
+                    tools:text="testuser20" />
+
+
+                <TextView
+                    android:id="@+id/txtProduct_productrating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/txtProductName_productitem"
+                    android:layout_marginRight="@dimen/_8sdp"
+                    android:drawableLeft="@drawable/ic_star_primary"
+                    android:drawableTint="@color/colorPrimary"
+                    android:gravity="center"
+                    android:text="@{productItem.ratings}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+                    android:textSize="@dimen/_10sdp"
+                    tools:text="3.4" />
+
+                <com.like.LikeButton
+                    android:id="@+id/likeButton_productitem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginRight="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    app:anim_scale_factor="1"
+                    app:circle_end_color="@android:color/white"
+                    app:circle_start_color="@color/colorPrimary"
+                    app:dots_primary_color="@color/colorPrimary"
+                    app:dots_secondary_color="@color/colorAccent"
+                    app:icon_size="@dimen/_20sdp"
+                    app:icon_type="heart"
+                    app:like_drawable="@drawable/ic_like_pressed"
+                    app:unlike_drawable="@drawable/ic_like_normal" />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</layout>

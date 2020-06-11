@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix">
+    <data>
+        <variable
+            name="saleItem"
+            type="com.appabilities.sold.networking.response.SaleResponse"/>
+    </data>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_4sdp"
+        android:layout_marginLeft="@dimen/_8sdp"
+        android:layout_marginRight="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:clickable="true"
+        android:background="@android:color/white"
+        >
+
+        <LinearLayout
+            android:id="@+id/layoutRoot"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="false"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_3sdp">
+
+                <TextView
+                    android:id="@+id/txtTitle_orderitem"
+                    fontPath="fonts/SF-UI-Display-Bold.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:lines="1"
+                    android:ellipsize="end"
+                    android:paddingLeft="@dimen/_3sdp"
+                    android:paddingTop="@dimen/_2sdp"
+                    android:paddingRight="@dimen/_3sdp"
+                    tools:text="Rolex Watch"
+                    android:text="@{saleItem.fullname}"
+                    android:textColor="#434343"
+                    android:textSize="@dimen/_15sdp"
+                    android:layout_toLeftOf="@+id/ratingProduct_productitem"
+                    android:layout_toStartOf="@+id/ratingProduct_productitem" />
+
+                <TextView
+                    android:id="@+id/txtTracking_orderitem"
+                    fontPath="fonts/SF-UI-Display-Light.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtTitle_orderitem"
+                    android:paddingLeft="@dimen/_3sdp"
+                    tools:text="Tracking ID: 1000023"
+                    android:text="@{@string/tracking_str(saleItem.orderID)}"
+                    android:textColor="#a3a3a3"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:id="@+id/txtDate_orderitem"
+                    fontPath="fonts/SF-UI-Display-Light.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/txtTracking_orderitem"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:layout_toLeftOf="@+id/btnFavourite_productitem"
+                    android:lines="1"
+                    android:ellipsize="end"
+                    android:minLines="1"
+                    android:paddingLeft="@dimen/_3sdp"
+                    tools:text="2017-01-10"
+                    android:text="@{saleItem.orderDate}"
+                    android:textColor="#a3a3a3"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:id="@+id/txtAmount_order"
+                    fontPath="fonts/SF-UI-Display-Light.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/txtTracking_orderitem"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:layout_toLeftOf="@+id/btnFavourite_productitem"
+                    android:lines="1"
+                    android:ellipsize="end"
+                    android:minLines="1"
+                    android:paddingLeft="@dimen/_3sdp"
+                    android:paddingTop="@dimen/_2sdp"
+                    android:paddingRight="@dimen/_3sdp"
+                    tools:text="$ 40"
+                    android:text="@{@string/amount_str(saleItem.totalPrice)}"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_14sdp" />
+
+
+                <TextView
+                    android:id="@+id/txtStatus_orderitem"
+                    fontPath="fonts/SF-UI-Display-Medium.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/_3sdp"
+                    android:paddingTop="@dimen/_2sdp"
+                    android:paddingRight="@dimen/_3sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    tools:text="Delivered"
+                    android:text="@{saleItem.orderStatus}"
+                    android:gravity="right"
+                    android:textColor="#03aa05"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/ratingProduct_productitem"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix">
+    <data>
+        <variable
+            name="view"
+            type="com.appabilities.sold.screens.login.LoginContract.View" />
+        <variable
+            name="presenter"
+            type="com.appabilities.sold.screens.login.LoginPresenter" />
+    </data>
+    <ScrollView
+        android:id="@+id/activity_login"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="@color/colorBackgroundOrange"
+        tools:context=".screens.login.view.LoginActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/layoutIcon"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_180sdp"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_logo_pocket_shop"
+                    android:padding="@dimen/_30sdp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerInside"
+                    android:visibility="visible"
+                    />
+
+            </LinearLayout>
+
+            <!-- bunch of components here -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@+id/layoutIcon"
+                >
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/_30sdp"
+                    android:paddingRight="@dimen/_30sdp"
+                    android:paddingTop="@dimen/_8sdp"
+                    android:paddingBottom="@dimen/_8sdp">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_14sdp"
+                        android:text="Username"
+                        fontPath="fonts/SF-UI-Display-Medium.otf"
+                        android:gravity="center_vertical"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@color/textColorPrimary"/>
+
+                    <EditText
+                        android:id="@+id/txtUsername"
+                        fontPath="fonts/SF-UI-Display-Light.otf"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@android:color/white"
+                        android:drawableLeft="@drawable/ic_username"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:hint="Username"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/_8sdp"
+                        android:textSize="@dimen/_12ssp"
+                        android:textColor="@color/editTextColorDark"
+                        android:textColorHint="@color/editTextColor" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_14sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="Password"
+                        fontPath="fonts/SF-UI-Display-Medium.otf"
+                        android:gravity="center_vertical"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@color/textColorPrimary"
+                        android:id="@+id/textView" />
+
+                    <EditText
+                        android:id="@+id/txtPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:textColorHint="@color/editTextColor"
+                        android:hint="Password"
+                        android:maxLines="1"
+                        android:inputType="textPassword"
+                        android:padding="@dimen/_8sdp"
+                        fontPath="fonts/SF-UI-Display-Light.otf"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:textSize="@dimen/_12ssp"
+                        android:textColor="@color/editTextColorDark"
+                        android:background="@android:color/white"
+                        android:gravity="center_vertical"
+                        android:drawableLeft="@drawable/ic_password"/>
+
+                    <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
+                        android:id="@+id/btnLogin"
+                        style="@style/LoginButton"
+                        android:layout_width="@dimen/_220sdp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/_25sdp"
+                        android:text="LOGIN"
+                        fontPath="fonts/SF-UI-Display-Bold.otf"
+                        app:spinning_bar_color="@color/colorPrimary"
+                        android:onClick="@{()->view.onLoginClick()}"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        app:spinning_bar_padding="3dp" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/_4sdp">
+
+                        <TextView
+                            android:id="@+id/txtForgotPasswordText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Forgot Password?"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/_13sdp"
+                            android:gravity="center"
+                            android:textStyle="italic"/>
+
+                        <TextView
+                            android:id="@+id/txtForgotPassword"
+                            android:clickable="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Reset Here"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/_13sdp"
+                            android:gravity="center"
+                            android:onClick="@{()->view.onResetPasswordClick()}"
+                            android:layout_marginLeft="@dimen/_4sdp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!-- bottom sticky views here -->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:gravity="center_horizontal|bottom">
+
+                <TextView
+                    android:id="@+id/txtRegisterText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:text="Don't have an account?"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/_13sdp"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/txtRegister"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_4sdp"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:onClick="@{()->view.onRegisterHereClick()}"
+                    android:text="Register Here"
+                    android:layout_toRightOf="@+id/txtRegisterText"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/_13sdp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

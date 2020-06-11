@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="cartItem"
+            type="com.appabilities.sold.database.tables.CartItemModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_4sdp"
+        android:layout_marginLeft="@dimen/_8sdp"
+        android:layout_marginRight="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:background="@android:color/white"
+        tools:ignore="MissingPrefix">
+
+        <RelativeLayout
+            android:id="@+id/layoutRoot_cartitem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:id="@+id/checkSelect_cartitem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_3sdp" />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/imgProduct_cartitem"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/_5sdp"
+                android:layout_toRightOf="@+id/checkSelect_cartitem"
+                android:scaleType="centerCrop"
+                android:src="@{cartItem.imgUrl}"
+                fresco:actualImageScaleType="centerCrop"
+                fresco:roundAsCircle="false"
+                fresco:fadeDuration="300"
+                fresco:placeholderImageScaleType="fitCenter"
+                fresco:placeholderImage="@color/light_bg_gray_color"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/imgProduct_cartitem"
+                android:padding="@dimen/_3sdp">
+
+                <TextView
+                    android:id="@+id/txtTitle_cartitem"
+                    fontPath="fonts/SF-UI-Display-Bold.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_toLeftOf="@+id/ratingProduct_productitem"
+                    android:layout_toStartOf="@+id/ratingProduct_productitem"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:paddingLeft="@dimen/_3sdp"
+                    android:paddingRight="@dimen/_3sdp"
+                    android:paddingTop="@dimen/_2sdp"
+                    tools:text="Rolex Watch"
+                    android:text="@{cartItem.title}"
+                    android:textColor="#434343"
+                    android:textSize="@dimen/_15sdp" />
+
+                <TextView
+                    android:id="@+id/txtSeller_cartitem"
+                    fontPath="fonts/SF-UI-Display-Light.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtTitle_cartitem"
+                    android:paddingLeft="@dimen/_3sdp"
+                    tools:text="By: John Doe"
+                    android:text="@{@string/owner_name_str(cartItem.seller)}"
+                    android:textColor="#a3a3a3"
+                    android:textSize="@dimen/_11sdp"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/txtUnitPrice_cartitem"
+                    fontPath="fonts/SF-UI-Display-Bold.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/txtSeller_cartitem"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:paddingLeft="@dimen/_3sdp"
+                    tools:text="$ 23.76"
+                    android:text="@{@string/amount_str(cartItem.price)}"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+
+
+                <me.himanshusoni.quantityview.QuantityView
+                    android:id="@+id/quantityUnit_cartitem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/txtUnitPrice_cartitem"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/_3sdp"
+                    android:layout_marginRight="@dimen/_3sdp"
+                    android:baselineAligned="true"
+                    app:qv_minQuantity="1"
+                    app:qv_quantity="1" />
+
+                <com.like.LikeButton
+                    android:id="@+id/imgRemove_cartitem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:clickable="true"
+                    android:padding="@dimen/_3sdp"
+                    app:anim_scale_factor="1"
+                    app:icon_size="@dimen/_15sdp"
+                    app:icon_type="heart"
+                    android:background="#FFC5EDFC"
+                    app:like_drawable="@drawable/chip_delete"
+                    app:unlike_drawable="@drawable/chip_delete" />
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

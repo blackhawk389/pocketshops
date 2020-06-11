@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="productModel"
+            type="com.appabilities.sold.networking.response.ProductResponse" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:layout_marginBottom="@dimen/_4sdp"
+        android:clickable="true"
+        tools:ignore="MissingPrefix"
+        >
+
+        <LinearLayout
+            android:id="@+id/layoutRoot"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="false"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+
+            <RelativeLayout
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:padding="@dimen/_5sdp">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/imgProduct_productitem"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_100sdp"
+                    android:src="@{productModel.imgName}"
+                    fresco:actualImageScaleType="centerCrop"
+                    fresco:roundAsCircle="false"
+                    fresco:fadeDuration="300"
+                    fresco:placeholderImageScaleType="fitCenter"
+                    fresco:placeholderImage="@color/light_bg_gray_color"
+                    android:transitionName="transitionProductImage" />
+
+                <com.haozhang.lib.SlantedTextView
+                    android:id="@+id/slantedAuctionable_productitem"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:gravity="center"
+                    app:slantedBackgroundColor="#FF0000"
+                    app:slantedLength="@dimen/_30sdp"
+                    app:slantedMode="left"
+                    app:slantedText="Auction"
+                    app:slantedTextColor="@android:color/white"
+                    app:slantedTextSize="@dimen/_10sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:visibility="invisible"
+                    />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_3sdp">
+
+                <TextView
+                    android:id="@+id/txtTitle_productitem"
+                    fontPath="fonts/SF-UI-Display-Bold.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:lines="1"
+                    android:ellipsize="end"
+                    android:paddingLeft="@dimen/_3sdp"
+                    android:paddingTop="@dimen/_2sdp"
+                    android:paddingRight="@dimen/_3sdp"
+                    tools:text="Rolex Watch"
+                    android:text="@{productModel.productTitle}"
+                    android:textColor="#434343"
+                    android:textSize="@dimen/_15sdp"
+                    android:layout_toLeftOf="@+id/ratingProduct_productitem"
+                    android:layout_toStartOf="@+id/ratingProduct_productitem" />
+
+
+                <TextView
+                    android:id="@+id/txtSeller_productitem"
+                    fontPath="fonts/SF-UI-Display-Light.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtTitle_productitem"
+                    android:paddingLeft="@dimen/_3sdp"
+                    tools:text="By: John Doe"
+                    android:text="@{@string/owner_name_str(productModel.productOwner)}"
+                    android:textColor="#a3a3a3"
+                    android:textSize="@dimen/_11sdp"
+                    android:textStyle="italic" />
+
+
+                <TextView
+                    android:id="@+id/txtStatus_sponser"
+                    fontPath="fonts/SF-UI-Display-Light.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_price"
+                    android:paddingLeft="@dimen/_3sdp"
+                    android:text="Sponsored"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="@dimen/_11sdp"
+                    android:visibility="gone"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/txt_price"
+                    fontPath="fonts/SF-UI-Display-Light.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtSeller_productitem"
+                    android:paddingLeft="@dimen/_3sdp"
+                    tools:text="Price: 1"
+                    android:text="@{@string/price_str(productModel.price)}"
+                    android:textColor="@color/accentColor"
+                    android:textSize="@dimen/_11sdp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/txtDetails_productitem"
+                    fontPath="fonts/SF-UI-Display-Light.otf"
+                    android:layout_width="260dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/txtStatus_sponser"
+                    android:layout_toLeftOf="@+id/btnFavourite_productitem"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:text="@{productModel.productDesc}"
+                    android:paddingLeft="@dimen/_3sdp"
+                    tools:text="Lorem Ipasdasdasdasdassum is simply dummy text of the printing and typesetting industry."
+                    android:textColor="#a3a3a3"
+                    android:textSize="@dimen/_12sdp" />
+
+
+                <com.like.LikeButton
+                    android:id="@+id/btnFavourite_productitem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    app:anim_scale_factor="1"
+                    app:icon_size="@dimen/_25sdp"
+                    app:icon_type="heart"
+                    app:liked="@{Integer.parseInt(productModel.liked == null?String.valueOf(0):productModel.liked)>0?true:false}"
+                    app:like_drawable="@drawable/ic_like_pressed"
+                    app:unlike_drawable="@drawable/ic_like_normal" />
+
+                <com.iarcuschin.simpleratingbar.SimpleRatingBar
+                    android:id="@+id/ratingProduct_productitem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:paddingTop="@dimen/_4sdp"
+                    android:layout_marginRight="@dimen/_4sdp"
+                    app:srb_borderColor="@color/colorPrimary"
+                    app:srb_fillColor="@color/colorPrimary"
+                    app:srb_isIndicator="true"
+                    app:srb_numberOfStars="5"
+                    app:srb_rating="3.5"
+                    app:srb_starBorderWidth="2"
+                    app:srb_starCornerRadius="0"
+                    app:srb_starSize="@dimen/_11sdp"
+                    app:srb_stepSize="0.5"
+                    />
+
+                <TextView
+                    android:id="@+id/txtReviews_productitem"
+                    fontPath="fonts/SF-UI-Display-Medium.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/_3sdp"
+                    android:layout_marginRight="@dimen/_4sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    tools:text="21 Reviews"
+                    android:text="@{@string/review_str(productModel.reviews)}"
+                    android:gravity="right"
+                    android:textColor="#a3a3a3"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/ratingProduct_productitem"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

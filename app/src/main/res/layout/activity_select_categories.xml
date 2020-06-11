@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.appabilities.sold.screens.select_categories.view.SelectCategoriesActivity">
+
+    <data>
+
+        <variable
+            name="view"
+            type="com.appabilities.sold.screens.select_categories.SelectCategoriesContract.View" />
+
+        <variable
+            name="presenter"
+            type="com.appabilities.sold.screens.select_categories.SelectCategoriesPresenter" />
+    </data>
+
+    <com.kennyc.view.MultiStateView
+        android:id="@+id/multiSateView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:msv_emptyView="@layout/empty_view"
+        app:msv_errorView="@layout/error_view"
+        app:msv_loadingView="@layout/loading_view"
+        app:msv_viewState="loading">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerCategories"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical" />
+        </LinearLayout>
+    </com.kennyc.view.MultiStateView>
+</layout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="labelName"
+            type="String"/>
+    </data>
+
+    <CheckedTextView android:id="@+id/txtLabel_labelitem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/label_flex_drawable"
+        android:text="@{labelName}"
+        tools:text="Hello Word"
+        android:textColor="@color/textColorPrimary"
+        android:layout_margin="@dimen/_2sdp"
+        android:padding="@dimen/_8sdp"
+        android:textSize="@dimen/_10sdp"/>
+
+</layout>

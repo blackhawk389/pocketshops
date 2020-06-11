@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/app.iml" filepath="$PROJECT_DIR$/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../CardForm-master/cardform/cardform.iml" filepath="$PROJECT_DIR$/../CardForm-master/cardform/cardform.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../oppwa.mobile-2.5.0/oppwa.mobile-2.5.0.iml" filepath="$PROJECT_DIR$/../oppwa.mobile-2.5.0/oppwa.mobile-2.5.0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../pocketshop-android.iml" filepath="$PROJECT_DIR$/../pocketshop-android.iml" />
+    </modules>
+  </component>
+</project>

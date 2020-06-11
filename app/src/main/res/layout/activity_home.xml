@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="view"
+            type="com.appabilities.sold.screens.home.HomeContract.View" />
+
+        <variable
+            name="presenter"
+            type="com.appabilities.sold.screens.home.HomePresenter" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="MissingPrefix"
+        tools:context="com.appabilities.sold.screens.home.view.HomeActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="?attr/actionBarSize">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/colorPrimary"
+                android:weightSum="4">
+
+                <EditText
+                    android:id="@+id/txtSearch"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:drawableRight="@drawable/ic_search"
+                    android:drawableTint="@color/colorPrimary"
+                    android:background="@android:color/white"
+                    android:hint="Search..."
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:inputType="none"
+                    android:padding="@dimen/_8sdp"
+                    android:textSize="@dimen/_14ssp"
+                    fontPath="fonts/SF-UI-Display-Light.otf"
+                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:onClick="@{()->view.onSearchClick()}"
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Invite"
+                    android:textColor="@android:color/white"
+                    android:gravity="center"
+                    android:textSize="@dimen/_14ssp"
+                    android:textStyle="bold"
+                    android:padding="@dimen/_8sdp"
+                    android:onClick="@{()->view.onInviteClick()}"
+                    fontPath="fonts/SF-UI-Display-Bold.otf"/>
+
+            </LinearLayout>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabsHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabMode="scrollable"
+                app:tabGravity="center"
+                app:tabPadding="@dimen/_12sdp"
+                android:background="@color/colorPrimary"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.appabilities.sold.utils.CustomViewPager
+                    android:id="@+id/viewpagerHome"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"  />
+
+                <com.github.clans.fab.FloatingActionMenu
+                    android:id="@+id/floatActionMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom|right"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    app:menu_backgroundColor="#cc000000"
+                    android:paddingBottom="12dp"
+                    android:paddingRight="12dp"
+                    app:menu_colorNormal="@color/colorPrimary"
+                    app:menu_colorPressed="@color/colorPrimaryDark"
+                    app:menu_colorRipple="@color/colorAccent"
+                    android:clipChildren="false"
+                    app:menu_showShadow="true"
+                    app:menu_labels_textColor="#454545"
+                    app:menu_labels_colorNormal="#ffffff"
+                    app:menu_labels_colorPressed="#e8e8e8">
+
+
+                    <com.github.clans.fab.FloatingActionButton
+                        android:id="@+id/fabNewAuction_home"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_announcement"
+                        android:onClick="@{()->view.onClickAddAuction()}"
+                        app:fab_size="mini"
+                        app:fab_label="Make Auction"
+                        app:fab_colorNormal="@color/colorPrimary"
+                        app:fab_colorPressed="@color/colorPrimaryDark"/>
+
+                    <com.github.clans.fab.FloatingActionButton
+                        android:id="@+id/fabNewProduct_home"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_product"
+                        app:fab_size="mini"
+                        app:fab_label="Add Product/Auction"
+                        android:onClick="@{()->view.onClickAddProduct()}"
+                        app:fab_colorNormal="@color/colorPrimary"
+                        app:fab_colorPressed="@color/colorPrimaryDark"/>
+
+                    <com.github.clans.fab.FloatingActionButton
+                        android:id="@+id/fabNewRequest_home"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_request"
+                        app:fab_size="mini"
+                        app:fab_label="Add Request"
+                        android:onClick="@{()->view.onClickAddRequest()}"
+                        app:fab_colorNormal="@color/colorPrimary"
+                        app:fab_colorPressed="@color/colorPrimaryDark"/>
+
+                    <com.github.clans.fab.FloatingActionButton
+                        android:id="@+id/fabNewAdvertisement_home"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_business"
+                        app:fab_size="mini"
+                        app:fab_label="Add Advertisement"
+                        android:onClick="@{()->view.onClickAddAdvertisement()}"
+                        app:fab_colorNormal="@color/colorPrimary"
+                        app:fab_colorPressed="@color/colorPrimaryDark"/>
+
+
+                </com.github.clans.fab.FloatingActionMenu>
+
+            </FrameLayout>
+
+
+        </LinearLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

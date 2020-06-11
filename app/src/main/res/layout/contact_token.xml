@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.appabilities.sold.custom.chips.TokenTextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/name"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/gray"
+    android:textColor="@android:color/white"
+    android:textSize="@dimen/_12sdp"
+    android:maxLines="1"
+    android:padding="@dimen/_4sdp"
+    tools:text="Glenda Jönsson"
+    android:layout_margin="@dimen/_4sdp"/>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/group1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="Home"
+            android:checked="true"/>
+        <item
+            android:id="@+id/nav_categories"
+            android:icon="@drawable/ic_categories"
+            android:title="Categories" />
+        <item
+            android:id="@+id/nav_seller"
+            android:icon="@drawable/ic_unfollow"
+            android:title="Search Seller" />
+        <item
+            android:id="@+id/nav_chat"
+            android:icon="@drawable/ic_chat"
+            android:title="Chat" />
+    </group>
+
+    <group
+        android:id="@+id/group2"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_my_account"
+            android:icon="@drawable/ic_account"
+            android:title="My Account" />
+        <item
+            android:id="@+id/nav_my_products"
+            android:icon="@drawable/ic_product"
+            android:title="My Products" />
+        <item
+            android:id="@+id/nav_my_sale"
+            android:icon="@drawable/ic_sale"
+            android:title="My Sales" />
+    </group>
+
+    <group
+        android:id="@+id/group3"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_my_request"
+            android:icon="@drawable/ic_request"
+            android:title="Requests" />
+        <item
+            android:id="@+id/nav_my_orders"
+            android:icon="@drawable/ic_orders"
+            android:title="Orders" />
+        <item
+            android:id="@+id/nav_auctions"
+            android:icon="@drawable/ic_announcement"
+            android:title="Auction" />
+        <item
+            android:id="@+id/nav_ad_history"
+            android:icon="@drawable/ic_business"
+            android:title="Advertisements" />
+    </group>
+
+    <group
+        android:id="@+id/group4"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_my_revenue"
+            android:icon="@drawable/ic_setting"
+            android:title="My Revenue" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_setting"
+            android:title="Settings" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="Logout" />
+        <item
+            android:title=""
+            android:orderInCategory="200"/>
+
+    </group>
+
+</menu>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="view"
+            type="com.appabilities.sold.screens.show_products.ShowProductsContract.View" />
+
+        <variable
+            name="presenter"
+            type="com.appabilities.sold.screens.show_products.ShowProductsPresenter" />
+
+    </data>
+
+    <com.kennyc.view.MultiStateView
+        android:id="@+id/multiStateView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        app:msv_emptyView="@layout/empty_view"
+        app:msv_errorView="@layout/error_view"
+        app:msv_loadingView="@layout/loading_view"
+        app:msv_viewState="loading"
+        android:background="#EEEEEE"
+        tools:context="com.appabilities.sold.screens.show_products.view.ShowProductsActivity">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_products"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:layout_marginLeft="@dimen/_4sdp"
+            android:layout_marginRight="@dimen/_4sdp"
+            android:scrollbars="vertical" />
+
+        <ru.dimorinny.floatingtextbutton.FloatingTextButton
+            android:id="@+id/floating_action_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:floating_icon="@drawable/ic_filter_list"
+            app:floating_title="FILTERS"
+            android:layout_gravity="bottom|center_horizontal"
+            app:floating_title_color="@android:color/white"
+            android:layout_marginBottom="@dimen/_20sdp"
+            app:paddingStart="@dimen/_20sdp"
+            app:paddingEnd="@dimen/_20sdp"
+            android:onClick="@{()->view.onClickFilters()}"
+            app:layout_behavior="ru.dimorinny.floatingtextbutton.behavior.SnackbarBehavior"
+            app:floating_background_color="?attr/colorPrimary"
+            />
+    </com.kennyc.view.MultiStateView>
+</layout>

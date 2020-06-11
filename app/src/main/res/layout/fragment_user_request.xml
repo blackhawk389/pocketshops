@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <variable
+            name="view"
+            type="com.appabilities.sold.screens.request.view.fragment.user_request.UserRequestContract.View"/>
+        <variable
+            name="presenter"
+            type="com.appabilities.sold.screens.request.view.fragment.user_request.UserRequestPresenter"/>
+    </data>
+    <com.kennyc.view.MultiStateView
+        android:id="@+id/multiSateView"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#EEEEEE"
+        app:msv_emptyView="@layout/empty_view1"
+        app:msv_errorView="@layout/error_view"
+        app:msv_loadingView="@layout/loading_view"
+        app:msv_viewState="content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_4sdp"/>
+    </com.kennyc.view.MultiStateView>
+</layout>
+

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CARS"
+        android:id="@+id/txtCategoryName_hoveritem"
+        android:textStyle="bold"
+        android:padding="@dimen/_5sdp"
+        fontPath="fonts/SF-UI-Display-Bold.otf"
+        android:textColor="@color/colorPrimary"
+        android:shadowColor="#D000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="4"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:textSize="@dimen/_25sdp"
+
+        />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:src="@mipmap/ic_selected"
+        android:layout_margin="@dimen/_5sdp"/>
+
+
+</RelativeLayout>

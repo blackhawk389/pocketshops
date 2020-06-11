@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="com.xiaofeng.android:flowlayoutmanager-1.2.3.2">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/flowlayoutmanager-1.2.3.2.aar/43c31be674775e707e8bdf6ae7965c47/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/flowlayoutmanager-1.2.3.2.aar/43c31be674775e707e8bdf6ae7965c47/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.xiaofeng.android/flowlayoutmanager/1.2.3.2/72bff91decf210f6dbe87e1fa79b394ac7f5b7bb/flowlayoutmanager-1.2.3.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

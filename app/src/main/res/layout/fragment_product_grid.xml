@@ -1,0 +1,37 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+
+    <!--<com.kennyc.view.MultiStateView
+        android:id="@+id/multiSateView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#EEEEEE"
+        app:msv_emptyView="@layout/empty_view"
+        app:msv_errorView="@layout/error_view"
+        app:msv_loadingView="@layout/loading_view"
+        app:msv_viewState="content"
+        android:visibility="gone"
+        tools:context="com.appabilities.sold.screens.seller_profile.fragment.product_grid.view.ProductGridFragment">
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+
+</com.kennyc.view.MultiStateView>-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_seller_products"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:layout_marginLeft="@dimen/_4sdp"
+            tools:listitem="@layout/product_grid_item_layout"
+            android:layout_marginRight="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_8sdp" />
+
+    <!--
+    </com.kennyc.view.MultiStateView>
+    -->
+</layout>
